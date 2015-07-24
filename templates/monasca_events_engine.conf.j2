@@ -6,7 +6,7 @@ log_file = "{{ monasca_events_log_dir }}/events_engine.log"
 database_name = {{ mysql_db }}
 hostname = {{ mysql_node }}
 username = {{ mysql_user }}
-password = {{ mysql_pass }}
+password = "{{ mysql_pass }}"
 
 [kafka]
 url: {{ kafka_node }}
