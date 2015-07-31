@@ -15,7 +15,7 @@
 - name: create events-engine configuration files
   copy: src={{ item }} dest="{{ monasca_conf_dir }}/{{ item }}" owner={{events_user}} group={{events_group}} mode=640
   with_items:
-    - piplines.yaml
+    - pipelines.yaml
     - triggers.yaml
     - winchester.yaml
     - event_definitions.yaml
