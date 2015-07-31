@@ -13,10 +13,12 @@
   template: src="{{ events_engine_conf_file }}.j2" dest="{{ monasca_conf_dir }}/{{ events_engine_conf_file }}" owner={{events_user}} group={{events_group}} mode=640
 
 - name: create events-engine configuration files
-  copy: src=pipelines.yaml dest="{{ monasca_conf_dir }}/pipelines.yaml" owner={{events_user}} group={{events_group}} mode=640
-  copy: src=triggers.yaml dest="{{ monasca_conf_dir }}/triggers.yaml" owner={{events_user}} group={{events_group}} mode=640
-  copy: src=winchester.yaml dest="{{ monasca_conf_dir }}/winchester.yaml" owner={{events_user}} group={{events_group}} mode=640
-  copy: src=event_definitions.yaml dest="{{ monasca_conf_dir }}/event_definitions.yaml" owner={{events_user}} group={{events_group}} mode=640
+  copy: src={{ item }} dest="{{ monasca_conf_dir }}/{{ item }}" owner={{events_user}} group={{events_group}} mode=640
+  with_items:
+    - piplines.yaml
+    - triggers.yaml
+    - winchester.yaml
+    - event_definitions.yaml
 
 - name: Detect if this is a systemd based system
   command: cat /proc/1/comm
