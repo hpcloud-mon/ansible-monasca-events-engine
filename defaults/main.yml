@@ -12,7 +12,7 @@ zoo_node: 192.168.10.4:2181
 event_group: monasca-event
 stream_def_group: streams_1
 stream_def_pipe_group: streams_pipe_1
-events_topic: raw-events
+events_topic: transformed-events
 transformed_events_topic: transformed-events
 stream_def_topic: stream-definitions
 notifications_topic: stream-notifications
